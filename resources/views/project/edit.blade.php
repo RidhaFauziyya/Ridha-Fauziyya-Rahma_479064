@@ -15,9 +15,9 @@
                 @enderror
             </div>
             <div class="form-group">
-                <input type="file" name="imagePath" class="@error('image') is-invalid @enderror">
+                <input type="file" name="imagePath" class="@error('imagePath') is-invalid @enderror">
                 <img src="{{ asset('storage/project/'.$project->imagePath) }}" width="300px" alt="Image">
-                @error('image')
+                @error('imagePath')
                     <div class="alert alert-danger">{{ $message }}</div>
                 @enderror
             </div>
