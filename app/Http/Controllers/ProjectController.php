@@ -49,7 +49,7 @@ class ProjectController extends Controller
             'namaProject.unique'      => 'Nama Project sudah ada!',
             'namaProject.min'     => 'Nama Project minimal memiliki :min karakter!',
             'namaProject.max'     => 'Nama Project maksimal memiliki :max karakter!',
-            'image.max'     => 'Ukuran file gambar terlalu besar! Maksimal ukuran gambar sebesar :max!'
+            'imagePath.max'     => 'Ukuran file gambar terlalu besar! Maksimal ukuran gambar sebesar :max!'
         ];
         $this -> validate($request,[
             'imagePath' => 'required|file|max:5000',
@@ -112,7 +112,7 @@ class ProjectController extends Controller
             'description.required'    => 'Deskripsi Project wajib diisi!',
             'namaProject.min'     => 'Nama Project minimal memiliki :min karakter!',
             'namaProject.max'     => 'Nama Project maksimal memiliki :max karakter!',
-            'image.max'     => 'Ukuran file gambar terlalu besar! Maksimal ukuran gambar sebesar :max!'
+            'imagePath.max'     => 'Ukuran file gambar terlalu besar! Maksimal ukuran gambar sebesar :max!'
         ];
         $this -> validate($request,[
             'imagePath' => 'max:5000',
@@ -122,7 +122,6 @@ class ProjectController extends Controller
         $project = Project::find($id);
         $project->namaProject = $request->input('namaProject');
         $project->description = $request->input('description');
-       
         if($request->hasfile('imagePath'))
         {
             $destination = 'storage/project/'.$project->imagePath;
