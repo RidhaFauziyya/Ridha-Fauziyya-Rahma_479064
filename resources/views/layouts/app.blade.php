@@ -1,37 +1,43 @@
-<!doctype html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<!DOCTYPE html>
+<!--
+This is a starter template page. Use this page to start your new project from
+scratch. This page gets rid of all links and provides the needed markup only.
+-->
+<html lang="en">
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.2.1/dist/css/bootstrap.min.css" 
-    integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
-    <title>{{ config('app.name') }}</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Portofolio</title>
 
+  <!-- Google Font: Source Sans Pro -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="{{ asset('Ite/plugins/fontawesome-free/css/all.min.css')}}">
+  <!-- Theme style -->
+  <link rel="stylesheet" href="{{asset('Ite/dist/css/adminlte.min.css')}}">
 </head>
-<body>
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <div class="container">
-        <a class="navbar-brand text-white"><b>Portofolio</b></a>
+<body class="hold-transition sidebar-mini">
+<div class="wrapper">
 
-        <div class="collapse navbar-collapse text-white">
-            <ul class="navbar-nav ml-auto text-center">
-            <li class="nav-item active">
-                <a class="nav-link" href="/home">Home</a>
-            </li>
-            <li class="nav-item active">
-                <a class="nav-link" href="/about">About</a>
-            </li>
-            <li class="nav-item active">
-                <a class="nav-link" href="/education">Education</a>
-            </li>
-            <li class="nav-item active">
-                <a class="nav-link" href="/project">Projects</a>
-            </li>
-            </ul>
-        </div>
-    </div>
-</nav>
-<br>
-     @yield('content')
+  <!-- Navbar -->
+  @include('layouts.header')
+  <!-- /.navbar -->
+  
+    <!-- Main content -->
+    @yield('content')
+
+  <!-- Main Footer -->
+  @include('layouts.footer')
+</div>
+<!-- ./wrapper -->
+
+<!-- REQUIRED SCRIPTS -->
+
+<!-- jQuery -->
+<script src="{{asset('Ite/plugins/jquery/jquery.min.js')}}"></script>
+<!-- Bootstrap 4 -->
+<script src="{{asset('Ite/plugins/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
+<!-- AdminLTE App -->
+<script src="{{asset('Ite/dist/js/adminlte.min.js')}}"></script>
 </body>
 </html>
