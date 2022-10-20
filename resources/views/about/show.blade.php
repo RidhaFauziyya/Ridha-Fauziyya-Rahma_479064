@@ -2,6 +2,7 @@
 
 @section('content')
 <div class="container">
+    <br>
     <div class="jumbotron jumbotron-fluid">
         <div class="row">
             <div class="col-md-6">
@@ -12,13 +13,15 @@
                 <small>Tanggal Upload: {{$about->created_at}}</small>
                 <br></br>
                 <p>{{$about->description}}</p>
-                <a href="/about" class="btn btn-dark">Back</a>
-                <a href="/about/{{$about->id}}/edit" class="btn btn-light">Edit</a>
+                <a href="/about" class="btn button bg-lightblue">Back</a>
+                @auth 
+                <a href="/about/{{$about->id}}/edit" class="btn button bg-lightblue">Edit</a>
 
                 <!-- <form action= "{{ route('about.destroy', $about->id)}}" method="POST">@method('DELETE')
                 {{ csrf_field() }} -->
-                    <input type="hidden" name="id" value="{{$about->id }}"> <br></br>
-                    <a href="/about/hapus/{{$about->id}}" onclick="return confirm('Apakah Anda Yakin Menghapus Aktifitas Ini?');" class="btn btn-danger btn-sm">Delete</a>
+                <input type="hidden" name="id" value="{{$about->id }}"> <br></br>
+                <a href="/about/hapus/{{$about->id}}" onclick="return confirm('Apakah Anda Yakin Menghapus Aktifitas Ini?');" class="btn btn-danger btn-sm">Delete</a>
+                @endauth
                 </form>
             </div>
         </div>

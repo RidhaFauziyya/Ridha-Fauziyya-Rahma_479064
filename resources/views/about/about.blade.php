@@ -17,8 +17,8 @@
             <strong>{{ $message }}</strong>
         </div>
     @endif
-    <div class="jumbotron jumbotron-fluid bg-dark">
-            <h1 class="display-6 text-center text-white"><b>About</b></h1>
+    <div class="jumbotron jumbotron-fluid bg-white">
+        <h1 class="display-4 text-center font-weight-bolder text-dark"><b>About</b></h1>
     </div>
     <div class="jumbotron jumbotron-fluid">
         <div class="row">
@@ -28,10 +28,12 @@
             <div class="col-md-1">
             </div>
             <div class="col-md-5">
-                <p class="lead">Hi! My name is Rida Fauziyah Rahma. I am currently studying for a D4 program in the field of software engineering technology at Gadjah Mada University Vocational School and am in 3rd semester.
+                <p class="lead">Hi! My name is Ridha Fauziyah Rahma. I am currently studying for a D4 program in the field of software engineering technology at Gadjah Mada University Vocational School and am in 3rd semester.
                     During my school and college years, I participated in many activities ranging from organizations, committees, volunteering and many more. I got many benefits from this activity.</p>
-                <p>Add new activity here:</p>
-                <a href="/about/create" class="btn btn-dark">Add Activity</a>
+                @auth
+                    <p>Add new activity here:</p>
+                    <a href="/about/create" class="btn button bg-lightblue">Add Activity</a>
+                @endauth
                 <br>
             </div>
             <div class="col-md-1">
@@ -48,11 +50,11 @@
                 <div class="col-sm-4">
                     <div class="card">
                         <img src="{{ asset('storage/about/'.$ab->imagePath) }}" class="w-100 p-2 border-bottom" alt="Rounded Image">
-                        <div class="card-body text-white bg-dark">
+                        <div class="card-body text-white bg-light">
                             <h3 class="card-title">{{$ab->namaAktifitas}}</h3>
                             <p class="card-text">Upload: {{$ab->created_at}}</p>
                             <p class="card-text">Update: {{$ab->updated_at}}</p>
-                            <a href="/about/{{$ab->id}}" class="btn btn-light">Read More</a>
+                            <a href="/about/{{$ab->id}}" class="btn button bg-lightblue">Read More</a>
                         </div>
                     </div>
                     <br>

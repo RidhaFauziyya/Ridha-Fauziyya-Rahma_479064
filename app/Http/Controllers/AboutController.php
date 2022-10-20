@@ -17,7 +17,7 @@ class AboutController extends Controller
     {
         $data = array(
             'id' => "about",
-            'about' => About::orderBy('created_at', 'desc')->paginate(10)
+            'about' => About::orderBy('created_at', 'desc')->paginate(9)
         );
         return view('about.about')->with($data);
     }

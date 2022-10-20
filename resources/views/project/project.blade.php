@@ -17,8 +17,8 @@
             <strong>{{ $message }}</strong>
         </div>
     @endif
-    <div class="jumbotron jumbotron-fluid bg-dark">
-            <h1 class="display-6 text-center text-white"><b>Project</b></h1>
+    <div class="jumbotron jumbotron-fluid bg-white">
+        <h1 class="display-4 text-center font-weight-bolder text-dark"><b>Project</b></h1>
     </div>
     <div class="jumbotron jumbotron-fluid">
         <div class="row">
@@ -29,8 +29,10 @@
             </div>
             <div class="col-md-5">
                 <p class="lead">This web page contains projects and works that I have or are currently working on.</p>
-                <p>Add new project here:</p>
-                <a href="/project/create" class="btn btn-dark">Add Project</a>
+                @auth 
+                    <p>Add new project here:</p>
+                    <a href="/project/create" class="btn button bg-lightblue">Add Project</a>
+                @endauth
                 <br>
             </div>
             <div class="col-md-1">
@@ -39,7 +41,7 @@
     </div>
 </div>
 <div class="container">
-    <h3>Project:</h3>
+    <h3 class="font-weight-bolder">Project:</h3>
     <br>
     <div class="row">
         @if(count($project)>0)
@@ -47,11 +49,11 @@
                 <div class="col-sm-4">
                     <div class="card">
                         <img src="{{ asset ('storage/project/'.$pro->imagePath) }}" class="w-100 p-2 border-bottom" alt="Rounded Image">
-                        <div class="card-body text-white bg-dark">
+                        <div class="card-body text-white bg-light">
                             <h3 class="card-title">{{$pro->namaProject}}</h3>
                             <p class="card-text">Upload: {{$pro->created_at}}</p>
                             <p class="card-text">Update: {{$pro->updated_at}}</p>
-                            <a href="/project/{{$pro->id}}" class="btn btn-dark">Read More</a>
+                            <a href="/project/{{$pro->id}}" class="btn button bg-lightblue">Read More</a>
                         </div>
                     </div>
                     <br>

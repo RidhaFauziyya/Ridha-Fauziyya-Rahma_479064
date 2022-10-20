@@ -2,8 +2,8 @@
 
 @section('content')
 <div class="container">
-    <div class="jumbotron jumbotron-fluid bg-dark">
-            <h1 class="display-6 text-center text-white"><b>Education</b></h1>
+    <div class="jumbotron jumbotron-fluid bg-white">
+        <h1 class="display-4 text-center font-weight-bolder text-dark"><b>Education</b></h1>
     </div>
     <div class="jumbotron jumbotron-fluid">
         <div class="row">
