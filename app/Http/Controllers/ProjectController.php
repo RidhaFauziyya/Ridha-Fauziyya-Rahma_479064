@@ -14,11 +14,16 @@ class ProjectController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function __construct()
+    {
+        $this->middleware('auth', ["except" => ["index"]]);
+    }
+
     public function index()
     {
         $data = array(
             'id' => "project",
-            'project' => Project::all()
+            'project' => Project::orderBy('created_at', 'desc')->paginate(9)
         );
         return view('project.project')->with($data);
     } 

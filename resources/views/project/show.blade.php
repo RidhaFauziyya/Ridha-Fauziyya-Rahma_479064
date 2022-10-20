@@ -2,6 +2,7 @@
 
 @section('content')
 <div class="container">
+    <br>
     <div class="jumbotron jumbotron-fluid">
         <div class="row">
             <div class="col-md-6">
@@ -12,8 +13,8 @@
                 <small>Tanggal Upload: {{$project->created_at}}</small>
                 <br></br>
                 <p>{{$project->description}}</p>
-                <a href="/project" class="btn btn-dark">Back</a> 
-                <a href="/project/{{$project->id}}/edit" class="btn btn-light">Edit</a>
+                <a href="/project" class="btn button bg-lightblue">Back</a> 
+                <a href="/project/{{$project->id}}/edit" class="btn button bg-lightblue">Edit</a>
 
                 <!-- <form action= "{{ route('project.destroy', $project->id)}}" method="POST">@method('DELETE')
                 {{ csrf_field() }} -->
