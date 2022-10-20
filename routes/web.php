@@ -27,7 +27,5 @@ Route::resource('education', 'App\Http\Controllers\EducationController');
 Route::resource('about', 'App\Http\Controllers\AboutController');
 
 Auth::routes();
-
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
 Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
