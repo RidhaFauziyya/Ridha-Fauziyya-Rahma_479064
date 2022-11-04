@@ -2,6 +2,7 @@
 
 @section('content')
 <div class="container">
+    <br>
     @if ($message = Session::get('success'))
         <div class="alert alert-success alert-block">
             <strong>{{ $message }}</strong>
@@ -49,11 +50,11 @@
             @foreach($about as $ab)
                 <div class="col-sm-4">
                     <div class="card">
-                        <img src="{{ asset('storage/about/'.$ab->imagePath) }}" class="w-100 p-2 border-bottom" alt="Rounded Image">
-                        <div class="card-body text-white bg-light">
-                            <h3 class="card-title">{{$ab->namaAktifitas}}</h3>
-                            <p class="card-text">Upload: {{$ab->created_at}}</p>
-                            <p class="card-text">Update: {{$ab->updated_at}}</p>
+                        <img src="{{ asset('storage/about/'.$ab->imagePath) }}" class="p-2 border-bottom" style="height: 200px" alt="Rounded Image">
+                        <div class="card-body">
+                            <h5><b>{{$ab->namaAktifitas}}</b></h5>
+                            <p>Upload: {{$ab->created_at}}</p>
+                            <p>Update: {{$ab->updated_at}}</p>
                             <a href="/about/{{$ab->id}}" class="btn button bg-lightblue">Read More</a>
                         </div>
                     </div>

@@ -5,11 +5,11 @@
     <br>
     <div class="jumbotron jumbotron-fluid">
         <div class="row">
-            <div class="col-md-6">
-                <img class="px-5" src="{{ asset('storage/project/'.$project->imagePath) }}" class="rounded" widht= "500px" height="250px">
+            <div class="col-md-7">
+                <img class="px-5" src="{{ asset('storage/project/'.$project->imagePath) }}" class="rounded" style="height:280px;">
             </div>
-            <div class="col-md-6">
-                <h1 class="display-4"><b>{{$project->namaProject}}</b></h1>
+            <div class="col-md-5">
+                <h1><b>{{$project->namaProject}}</b></h1>
                 <small>Tanggal Upload: {{$project->created_at}}</small>
                 <br></br>
                 <p>{{$project->description}}</p>

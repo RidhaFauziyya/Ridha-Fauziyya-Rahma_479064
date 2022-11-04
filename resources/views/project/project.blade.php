@@ -2,6 +2,7 @@
 
 @section('content')
 <div class="container">
+    <br>
     @if ($message = Session::get('success'))
         <div class="alert alert-success alert-block">
             <strong>{{ $message }}</strong>
@@ -48,11 +49,11 @@
             @foreach($project as $pro)
                 <div class="col-sm-4">
                     <div class="card">
-                        <img src="{{ asset ('storage/project/'.$pro->imagePath) }}" class="w-100 p-2 border-bottom" alt="Rounded Image">
+                        <img src="{{ asset ('storage/project/'.$pro->imagePath) }}" class="p-2 border-bottom" style="height: 200px" alt="Rounded Image">
                         <div class="card-body text-white bg-light">
-                            <h3 class="card-title">{{$pro->namaProject}}</h3>
-                            <p class="card-text">Upload: {{$pro->created_at}}</p>
-                            <p class="card-text">Update: {{$pro->updated_at}}</p>
+                            <h5><b>{{$pro->namaProject}}</b></h5>
+                            <p>Upload: {{$pro->created_at}}</p>
+                            <p>Update: {{$pro->updated_at}}</p>
                             <a href="/project/{{$pro->id}}" class="btn button bg-lightblue">Read More</a>
                         </div>
                     </div>

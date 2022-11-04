@@ -2,9 +2,10 @@
 
 @section('content')
 <div class="container">
-    <div class="jumbotron jumbotron-fluid">
+<br>
+    <div class="jumbotron jumbotron-fluid p-5">
         <div class="container">
-            <h1 class="display-4"><b>Add Activity</b></h1>
+            <h1><b>Add Activity</b></h1>
             <form action="{{ route('about.store') }}" method="POST" enctype ="multipart/form-data">
             {{ csrf_field() }}
             <div class="form-group">
