@@ -2,10 +2,11 @@
 
 @section('content')
 <div class="container">
-    <div class="jumbotron jumbotron-fluid">
+    <br>
+    <div class="jumbotron jumbotron-fluid p-5">
         <div class="container">
-            <h1 class="display-4"><b>Edit Project</b></h1>
-            <form action="{{ route('project.update', $project->id) }}" method="POST" > @method('PUT')
+            <h1><b>Edit Project</b></h1>
+            <form action="{{ route('project.update', $project->id) }}" method="POST" enctype ="multipart/form-data"> @method('PUT')
             {{ csrf_field() }}
             <div class="form-group">
                 <label for="namaProject">Nama Project</label>

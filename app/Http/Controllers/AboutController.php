@@ -51,17 +51,23 @@ class AboutController extends Controller
             'imagePath.max'     => 'Ukuran file gambar terlalu besar! Maksimal ukuran gambar sebesar :max!'
         ];
         $this -> validate($request,[
-            'imagePath' => 'required|file|max:5000',
+            'imagePath' => 'required|image|mimes:jpg,png,jpeg|max:5000',
             'namaAktifitas' => 'required|unique:abouts|min:5|max:20',
             'description' => 'required'
         ],$messages);
         $about = new About;
         $about->namaAktifitas = $request->input('namaAktifitas');
         $about->description = $request->input('description');
-        $file = $request->file('imagePath');
-        $filename = $file->getClientOriginalName();
-        $file->move('storage/about/', $filename);
-        $about->imagePath = $filename;
+        if($request->hasfile('imagePath'))
+        {
+            $file = $request->file('imagePath');  
+            $filenameFirst = $file->getClientOriginalName();
+            $filenameUnik = pathinfo($filenameFirst, PATHINFO_FILENAME);
+            $extension = $request->file('imagePath')->getClientOriginalExtension();
+            $filename = $filenameUnik . '_' . time() . '.' . $extension;
+            $file->move('storage/about/', $filename);
+            $about->imagePath = $filename;
+        }
         $about->save();
         return redirect('/about')->with(['success' => 'Data Aktivitas telah disimpan.']);
     }
@@ -127,8 +133,11 @@ class AboutController extends Controller
             {
                 File::delete($destination);
             }
-            $file = $request->file('imagePath');
-            $filename = $file->getClientOriginalName();
+            $file = $request->file('imagePath');  
+            $filenameFirst = $file->getClientOriginalName();
+            $filenameUnik = pathinfo($filenameFirst, PATHINFO_FILENAME);
+            $extension = $request->file('imagePath')->getClientOriginalExtension();
+            $filename = $filenameUnik . '_' . time() . '.' . $extension;
             $file->move('storage/about/', $filename);
             $about->imagePath = $filename;
         }

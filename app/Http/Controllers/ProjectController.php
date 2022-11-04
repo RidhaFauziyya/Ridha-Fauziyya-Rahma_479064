@@ -57,17 +57,23 @@ class ProjectController extends Controller
             'imagePath.max'     => 'Ukuran file gambar terlalu besar! Maksimal ukuran gambar sebesar :max!'
         ];
         $this -> validate($request,[
-            'imagePath' => 'required|file|max:5000',
+            'imagePath' => 'required|image|mimes:jpg,png,jpeg|max:5000',
             'namaProject' => 'required|unique:projects|min:5|max:20',
             'description' => 'required'
         ],$messages);
         $project = new Project;
         $project->namaProject = $request->input('namaProject');
         $project->description = $request->input('description');
-        $file = $request->file('imagePath');
-        $filename = $file->getClientOriginalName();
-        $file->move('storage/project/', $filename);
-        $project->imagePath = $filename;
+        if($request->hasfile('imagePath'))
+        {
+            $file = $request->file('imagePath');  
+            $filenameFirst = $file->getClientOriginalName();
+            $filenameUnik = pathinfo($filenameFirst, PATHINFO_FILENAME);
+            $extension = $request->file('imagePath')->getClientOriginalExtension();
+            $filename = $filenameUnik . '_' . time() . '.' . $extension;
+            $file->move('storage/project/', $filename);
+            $project->imagePath = $filename;
+        }
         $project->save();
         return redirect('/project')->with(['success' => 'Data Project telah disimpan.']);
 
@@ -134,8 +140,11 @@ class ProjectController extends Controller
             {
                 File::delete($destination);
             }
-            $file = $request->file('imagePath');
-            $filename = $file->getClientOriginalName();
+            $file = $request->file('imagePath');  
+            $filenameFirst = $file->getClientOriginalName();
+            $filenameUnik = pathinfo($filenameFirst, PATHINFO_FILENAME);
+            $extension = $request->file('imagePath')->getClientOriginalExtension();
+            $filename = $filenameUnik . '_' . time() . '.' . $extension;
             $file->move('storage/project/', $filename);
             $project->imagePath = $filename;
         }

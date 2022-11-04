@@ -3,8 +3,8 @@
     <div id="mySidenav" class="sidenav">
       <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
       @guest
+        <img src="{{ asset('Ite/dist/img/porto.jpg')}}" alt="User Avatar" class="img-size-50 mr-3 img-circle elevation-3" style="margin-left:1.5rem;">
         <a href="/home">
-          <img src="{{ asset('Ite/dist/img/porto.jpg')}}" alt="User Avatar" class="img-size-50 mr-3 img-circle elevation-3" style="margin-left:1.5rem;">
           <span class="brand-text font-weight-bolder text-light">Portofolio</span>
         </a>
         <a class="btn btn-light" style="margin:1rem; color: #111; padding-left:0" href="{{ route('login') }}">Login</a>
@@ -24,8 +24,8 @@
     </div>
     <span style="font-size:30px; cursor:pointer; margin-left:1rem;" onclick="openNav()">&#9776;</span>
     @auth
+    <img src="{{ asset('Ite/dist/img/porto.jpg')}}" alt="User Avatar" class="img-size-50 mr-3 img-circle elevation-3" style="margin-left:1.5rem;">
     <a href="/home">
-      <img src="{{ asset('Ite/dist/img/porto.jpg')}}" alt="User Avatar" class="img-size-50 mr-3 img-circle elevation-3" style="margin-left:1.5rem;">
       <span class="brand-text font-weight-bolder text-light">Portofolio</span>
     </a>
     @endauth
