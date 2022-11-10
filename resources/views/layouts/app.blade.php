@@ -16,6 +16,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <!-- Theme style -->
   <link rel="stylesheet" href="{{asset('Ite/dist/css/adminlte.min.css')}}">
 
+  <!-- CSS LightBox -->
+  <link rel="stylesheet" href="{{ asset('lightbox2-dev/dist/css/lightbox.min.css')}}">
+
   <style>
   .sidenav {
     height: 100%;
@@ -85,6 +88,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
 <script src="{{asset('Ite/plugins/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
 <!-- AdminLTE App -->
 <script src="{{asset('Ite/dist/js/adminlte.min.js')}}"></script>
+
+<!-- JS LighBox -->
+<script src="{{ asset('lightbox2-dev/dist/js/lightbox-plus-jquery.min.js')}}"></script>
 
 <script>
   function openNav() {

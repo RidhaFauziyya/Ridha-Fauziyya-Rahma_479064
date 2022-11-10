@@ -54,7 +54,8 @@ class ProjectController extends Controller
             'namaProject.unique'      => 'Nama Project sudah ada!',
             'namaProject.min'     => 'Nama Project minimal memiliki :min karakter!',
             'namaProject.max'     => 'Nama Project maksimal memiliki :max karakter!',
-            'imagePath.max'     => 'Ukuran file gambar terlalu besar! Maksimal ukuran gambar sebesar :max!'
+            'imagePath.max'     => 'Ukuran file gambar terlalu besar! Maksimal ukuran gambar sebesar :max!',
+            'imagePath.mimes'     => 'File gambar harus berupa format :mimes!'
         ];
         $this -> validate($request,[
             'imagePath' => 'required|image|mimes:jpg,png,jpeg|max:5000',
@@ -123,10 +124,11 @@ class ProjectController extends Controller
             'description.required'    => 'Deskripsi Project wajib diisi!',
             'namaProject.min'     => 'Nama Project minimal memiliki :min karakter!',
             'namaProject.max'     => 'Nama Project maksimal memiliki :max karakter!',
-            'imagePath.max'     => 'Ukuran file gambar terlalu besar! Maksimal ukuran gambar sebesar :max!'
+            'imagePath.max'     => 'Ukuran file gambar terlalu besar! Maksimal ukuran gambar sebesar :max!',
+            'imagePath.mimes'     => 'File gambar harus berupa format :mimes!'
         ];
         $this -> validate($request,[
-            'imagePath' => 'max:5000',
+            'imagePath' => 'image|mimes:jpg,png,jpeg|max:5000',
             'namaProject' => 'required|min:5|max:20',
             'description' => 'required'
         ],$messages);

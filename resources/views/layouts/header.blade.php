@@ -18,6 +18,7 @@
         <a href="/about">About</a>
         <a href="/education">Education</a>
         <a href="/project">Project</a>
+        <a href="{{ url('/gallery') }}" class="nav-link text-light">Gallery</a>
         <a class="btn btn-light" style="margin:1rem; color: #111; padding-left:0" href="/send-email">Send Email</a>
         <a class="btn btn-light" style="margin:1rem; color: #111; padding-left:0" href="{{ route('logout') }}">Logout</a>
       @endauth
@@ -43,6 +44,9 @@
       </li>
       <li class="nav-item d-none d-sm-inline-block">
         <a href="/project" class="nav-link text-light">Project</a>
+      </li>
+      <li class="nav-item d-none d-sm-inline-block">
+        <a href="{{ url('/gallery') }}" class="nav-link text-light">Gallery</a>
       </li>
     </ul>
     @endguest
