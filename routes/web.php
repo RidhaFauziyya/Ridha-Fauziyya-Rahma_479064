@@ -28,6 +28,7 @@ Route::resource('home', 'App\Http\Controllers\HomeController');
 Route::resource('project', 'App\Http\Controllers\ProjectController');
 Route::resource('education', 'App\Http\Controllers\EducationController');
 Route::resource('about', 'App\Http\Controllers\AboutController');
+Route::resource('gallery', 'App\Http\Controllers\GalleryController');
 
 Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

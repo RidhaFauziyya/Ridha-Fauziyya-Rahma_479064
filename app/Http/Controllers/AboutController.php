@@ -48,7 +48,8 @@ class AboutController extends Controller
             'namaAktifitas.unique'      => 'Nama Aktifitas sudah ada!',
             'namaAktifitas.min'     => 'Nama Aktifitas minimal memiliki :min karakter!',
             'namaAktifitas.max'     => 'Nama Aktifitas maksimal memiliki :max karakter!',
-            'imagePath.max'     => 'Ukuran file gambar terlalu besar! Maksimal ukuran gambar sebesar :max!'
+            'imagePath.max'     => 'Ukuran file gambar terlalu besar! Maksimal ukuran gambar sebesar :max!',
+            'imagePath.mimes'     => 'File gambar harus berupa format :mimes!'
         ];
         $this -> validate($request,[
             'imagePath' => 'required|image|mimes:jpg,png,jpeg|max:5000',
@@ -116,10 +117,11 @@ class AboutController extends Controller
             'description.required'    => 'Deskripsi Aktifitas wajib diisi!',
             'namaAktifitas.min'     => 'Nama Aktifitas minimal memiliki :min karakter!',
             'namaAktifitas.max'     => 'Nama Aktifitas maksimal memiliki :max karakter!',
-            'imagePath.max'     => 'Ukuran file gambar terlalu besar! Maksimal ukuran gambar sebesar :max!'
+            'imagePath.max'     => 'Ukuran file gambar terlalu besar! Maksimal ukuran gambar sebesar :max!',
+            'imagePath.mimes'     => 'File gambar harus berupa format :mimes!'
         ];
         $this -> validate($request,[
-            'imagePath' => 'max:5000',
+            'imagePath' => 'image|mimes:jpg,png,jpeg|max:5000',
             'namaAktifitas' => 'required|min:5|max:20',
             'description' => 'required'
         ],$messages);
