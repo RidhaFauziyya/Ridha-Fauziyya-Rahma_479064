@@ -51,3 +51,4 @@ Route::post('/post-email', [App\Http\Controllers\SendEmailController::class, 'st
 Route::get('/send-link', [App\Http\Controllers\SendLinkController::class, 'index'])->name('reset-password');
 Route::post('/post-link', [App\Http\Controllers\SendLinkController::class, 'store'])->name('post-link');
 
+Route::get('/gallery2', [App\Http\Controllers\GreetController::class, 'gallery'])->name('gallery');
