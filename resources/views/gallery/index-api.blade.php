@@ -24,8 +24,7 @@
                         <div>
                             <a class="example-image-link" href=""
                                 data-lightbox="example-2" data-title="">
-                                <img class="example-image img-fluid mb-2"
-                                    src=" " alt="image-1"></a>
+                                <div id="gallery-api"></div>
                         </div>
                     </div>
                 </div>
