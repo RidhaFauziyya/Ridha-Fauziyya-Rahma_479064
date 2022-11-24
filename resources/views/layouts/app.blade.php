@@ -91,6 +91,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
 <!-- JS LighBox -->
 <script src="{{ asset('lightbox2-dev/dist/js/lightbox-plus-jquery.min.js')}}"></script>
+<script src="{{ asset('gallery.js')}}"></script>
 
 <script>
   function openNav() {
