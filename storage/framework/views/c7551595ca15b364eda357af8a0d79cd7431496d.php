@@ -9,6 +9,13 @@
                 <div class="card-header bg-lightblue"><b><?php echo e(__('Send Email')); ?></b></div>
 
                 <div class="card-body">
+                
+                <?php if(session('status')): ?>
+                <div class="alert alert-primary" role="alert">
+                    <?php echo e(session('status')); ?>
+
+                </div>
+                <?php endif; ?>
                     <form method="POST" action="<?php echo e(route('post-email')); ?>">
                         <?php echo csrf_field(); ?>
 
