@@ -9,6 +9,12 @@
                 <div class="card-header bg-lightblue"><b>{{ __('Send Email') }}</b></div>
 
                 <div class="card-body">
+                {{-- send email --}}
+                @if (session('status'))
+                <div class="alert alert-primary" role="alert">
+                    {{session('status')}}
+                </div>
+                @endif
                     <form method="POST" action="{{ route('post-email') }}">
                         @csrf
 
